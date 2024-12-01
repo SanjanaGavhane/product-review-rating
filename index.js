@@ -1,6 +1,11 @@
-class ProductReviewSystem {
+import React, { Component } from "react";
+
+class ProductReviewSystem extends Component {
   constructor() {
-    this.reviews = [];
+    super();
+    this.state = {
+      reviews: [],
+    };
   }
 
   // Function to submit a review
@@ -11,28 +16,40 @@ class ProductReviewSystem {
       userId: userId,
       timestamp: new Date(),
     };
-    this.reviews.push(review);
+
+    this.setState((prevState) => ({
+      reviews: [...prevState.reviews, review],
+    }));
   }
 
   // Function to calculate average rating
   getAverageRating() {
-    if (this.reviews.length === 0) return 0;
-    let totalRating = this.reviews.reduce(
-      (acc, review) => acc + review.rating,
-      0
-    );
-    return (totalRating / this.reviews.length).toFixed(1);
+    const { reviews } = this.state;
+    if (reviews.length === 0) return 0;
+    let totalRating = reviews.reduce((acc, review) => acc + review.rating, 0);
+    return (totalRating / reviews.length).toFixed(1);
   }
 
   // Function to render reviews
   renderReviews() {
-    return this.reviews.map((review, index) => (
+    const { reviews } = this.state;
+    return reviews.map((review, index) => (
       <div className="review" key={index}>
         <p>User: {review.userId}</p>
         <p>Rating: {review.rating} stars</p>
         <p>Review: {review.text}</p>
       </div>
     ));
+  }
+
+  render() {
+    return (
+      <div>
+        <h2>Product Reviews</h2>
+        <p>Average Rating: {this.getAverageRating()} stars</p>
+        {this.renderReviews()}
+      </div>
+    );
   }
 }
 
