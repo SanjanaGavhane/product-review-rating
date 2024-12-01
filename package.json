@@ -1,0 +1,22 @@
+{
+  "name": "product-review-rating",
+  "version": "1.2.0",
+  "description": "Product Reviews and Ratings",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SanjanaGavhane/product-review-rating.git"
+  },
+  "keywords": [
+    "Review"
+  ],
+  "author": "sanjana.gavhane",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SanjanaGavhane/product-review-rating/issues"
+  },
+  "homepage": "https://github.com/SanjanaGavhane/product-review-rating#readme"
+}
