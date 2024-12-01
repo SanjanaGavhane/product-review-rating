@@ -26,18 +26,14 @@ class ProductReviewSystem {
 
   // Function to render reviews
   renderReviews() {
-    return this.reviews
-      .map(
-        (review, index) => `
-          <div class="review" key=${index}>
-              <p>User: ${review.userId}</p>
-              <p>Rating: ${review.rating} stars</p>
-              <p>Review: ${review.text}</p>
-          </div>
-      `
-      )
-      .join("");
+    return this.reviews.map((review, index) => (
+      <div className="review" key={index}>
+        <p>User: {review.userId}</p>
+        <p>Rating: {review.rating} stars</p>
+        <p>Review: {review.text}</p>
+      </div>
+    ));
   }
 }
 
-module.exports = ProductReviewSystem;
+export default ProductReviewSystem;
